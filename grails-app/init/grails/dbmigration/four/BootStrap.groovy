@@ -8,7 +8,7 @@ class BootStrap {
     def init = { servletContext ->
 
         if ( Environment.current == Environment.DEVELOPMENT ) {
-            initPersons()
+            //initPersons()
         }
     }
 
@@ -21,7 +21,7 @@ class BootStrap {
             [name: 'Jeff', age: 45],
             [name: 'Sergio', age: 34]
         ].each { Map m ->
-            Person.findByName(m.name) ?: new Person(m).save(fl)
+            Person.findByName(m.name) ?: new Person(m).save()
         }
     }
 }

@@ -71,6 +71,13 @@ dependencies {
     testCompile "org.seleniumhq.selenium:selenium-support:3.14.0"
     testRuntime "org.seleniumhq.selenium:selenium-chrome-driver:3.14.0"
     testRuntime "org.seleniumhq.selenium:selenium-firefox-driver:3.14.0"
+
+    //tag::databaseMigrationDependency[]
+    compile 'org.grails.plugins:database-migration:3.0.3'
+    //end::databaseMigrationDependency[]
+    //tag::liquibaseDependency[]
+    compile 'org.liquibase:liquibase-core:3.5.3'
+    //end::liquibaseDependency[]
 }
 
 bootRun {
@@ -100,4 +107,12 @@ tasks.withType(Test) {
 assets {
     minifyJs = true
     minifyCss = true
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDir 'grails-app/migrations'
+        }
+    }
 }

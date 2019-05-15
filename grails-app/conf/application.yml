@@ -107,7 +107,7 @@ dataSource:
 environments:
     development:
         dataSource:
-            dbCreate: create-drop
+            dbCreate: none
             url: jdbc:h2:file:./devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
     test:
         dataSource:
@@ -135,3 +135,10 @@ environments:
                 testOnReturn: false
                 jdbcInterceptors: ConnectionState
                 defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
+# tag::updateOnStartUp[]
+#grails:
+#    plugin:
+#        databasemigration:
+#            updateOnStart: true
+#            updateOnStartFileName: changelog.groovy
+# end::updateOnStartUp[]
