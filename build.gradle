@@ -1,5 +1,6 @@
 buildscript {
     repositories {
+        mavenLocal()
         maven { url "https://repo.grails.org/grails/core" }
     }
     dependencies {
@@ -7,7 +8,13 @@ buildscript {
         classpath "org.grails.plugins:hibernate5:7.0.0"
         classpath "gradle.plugin.com.github.erdi.webdriver-binaries:webdriver-binaries-gradle-plugin:2.0"
         classpath "com.bertramlabs.plugins:asset-pipeline-gradle:3.0.10"
+        //tag::databaseMigrationBuildscriptDependency[]
+        classpath "org.grails.plugins:database-migration:4.0.0.BUILD-SNAPSHOT"
+        //end::databaseMigrationBuildscriptDependency[]
+
+
     }
+    
 }
 
 version "0.1"
@@ -22,6 +29,7 @@ apply plugin:"org.grails.grails-gsp"
 apply plugin:"com.bertramlabs.asset-pipeline"
 
 repositories {
+    mavenLocal()
     maven { url "https://repo.grails.org/grails/core" }
 }
 
@@ -73,11 +81,14 @@ dependencies {
     testRuntime "org.seleniumhq.selenium:selenium-firefox-driver:3.14.0"
 
     //tag::databaseMigrationDependency[]
-    compile 'org.grails.plugins:database-migration:3.0.3'
+    compile "org.grails.plugins:database-migration:4.0.0.BUILD-SNAPSHOT"
     //end::databaseMigrationDependency[]
     //tag::liquibaseDependency[]
     compile 'org.liquibase:liquibase-core:3.5.3'
     //end::liquibaseDependency[]
+    // tag::mysqlConnector[]
+    runtime 'mysql:mysql-connector-java:5.1.36'
+    // end::mysqlConnector[]
 }
 
 bootRun {
