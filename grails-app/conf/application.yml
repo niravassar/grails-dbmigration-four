@@ -140,6 +140,6 @@ environments:
 grails:
     plugin:
         databasemigration:
-            updateOnStart: false
+            updateOnStart: true
             updateOnStartFileName: changelog.groovy
 # end::updateOnStartUp[]

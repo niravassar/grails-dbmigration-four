@@ -8,7 +8,7 @@ class BootStrap {
     def init = { servletContext ->
 
         if ( Environment.current == Environment.DEVELOPMENT ) {
-            //initPersons()
+            initPersons()
         }
     }
 
