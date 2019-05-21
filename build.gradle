@@ -127,3 +127,7 @@ sourceSets {
         }
     }
 }
+
+grails {
+    pathingJar = true
+}
